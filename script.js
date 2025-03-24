@@ -7,9 +7,9 @@ let p1 = 0, p2 = 0;
 let pp = document.querySelector(".player1");
 let pe = document.querySelector(".player2");
 
-let m = new Audio("ting.mp3");
-let ss = new Audio("music.mp3");
-let gg = new Audio("gameover.mp3");
+let m = new Audio("img/ting.mp3");
+let ss = new Audio("img/music.mp3");
+let gg = new Audio("img/gameover.mp3");
 
 let gc = document.querySelector(".gameCont");
 let sg = document.querySelector("#startGame");
@@ -26,7 +26,7 @@ function addEventListeners() {
                     gameOver = true;
                     gg.play();
                     ss.pause();
-                    gc.style.backgroundImage = "url('excited.gif')";
+                    gc.style.backgroundImage = "url('img/excited.gif')";
                 } else {
                     turn = turn === "X" ? "O" : "X";
                 }
