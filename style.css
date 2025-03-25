@@ -110,6 +110,18 @@ button#startGame {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
+#stopMusic{
+    margin-top: 2vw;
+    padding: 1vw 2vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: white;
+    background-color: green;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
 #winnerText{
     color: black;
     font: bold;
@@ -168,4 +180,19 @@ button#startGame {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
+}
+button#stopMusic{
+
+    margin-top: 2vh;
+    padding: 1vh 2vh;
+    font-size: 1.5vh;
+    font-weight: bold;
+    color: white;
+    background-color: green;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+
+
 }
