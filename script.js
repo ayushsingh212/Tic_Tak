@@ -106,7 +106,7 @@ function checkWinner() {
             boxTexts[a].innerText === boxTexts[b].innerText &&
             boxTexts[b].innerText === boxTexts[c].innerText
         ) {
-            document.querySelector("#winnerText").innerText = boxTexts[a].innerText + " Won!";
+            document.querySelector("#winnerText").innerText = boxTexts[a].innerText + " Won! Start the Game Again";
             if (boxTexts[a].innerText === "X") {
                 p1++;
                 pp.innerText = p1;
