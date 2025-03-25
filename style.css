@@ -7,22 +7,35 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-color: darkblue;
 }
 
 nav {
+    width: 100vw;
     background-color: purple;
     color: white;
     height: 65px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     font-size: 27px;
 }
+.container {
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+    background-color: red;
+    padding: 2vw;
+    border-radius: 10px;
+    width: 100vw;
+    height: 100vh;
+}
 .gameCont {
     display: grid;
-    width: 30vw;
-    height: 30vw;
+    width: 33vw;
+    height: 33vw;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
     border: 2px solid black;
@@ -46,20 +59,11 @@ nav {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5vw;
-    background-color: red;
-    margin: 8vw 7vw;
-    padding: 2vw;
-    border-radius: 10px;
-}
+
 
 .gameinfo {
-    width: 30vw;
-    height: 30vw;
+    width: 33vw;
+    height: 33vw;
     border: 2px solid black;
     background-color: blue;
     display: flex;
@@ -106,7 +110,62 @@ button#startGame {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-
+#winnerText{
+    color: black;
+    font: bold;
+    font-size: 3vw;
+    
+}
 button#startGame:hover {
     background-color: darkgreen;
+}
+@media screen and (max-width: 1100px) {
+    .container {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5vw;
+        background-color: red;
+        padding: 2vw;
+        border-radius: 10px;
+        width: 100vw;
+        height: 100vh;
+    }
+    .gameCont{
+     
+        width: 33vh;
+        height: 33vh;
+      
+    }
+    .gameinfo{
+        width: 33vh;
+        height: 33vh;
+    }
+    .points {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1vh;
+    }
+    .points .p1,
+.points .p2 {
+    border: 2px solid white;
+    color: white;
+    font-size: 2vh;
+    padding: 0.5vw;
+    border-radius: 5px;
+}
+button#startGame {
+    margin-top: 2vh;
+    padding: 1vh 2vh;
+    font-size: 1.5vh;
+    font-weight: bold;
+    color: white;
+    background-color: green;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
 }
