@@ -1,4 +1,5 @@
 let boxes = document.getElementsByClassName("box");
+let sm = document.querySelector("#stopMusic");
 let turn = "X";
 let start = false;
 let gameOver = false;
@@ -13,6 +14,21 @@ let gg = new Audio("img/gameover.mp3");
 
 let gc = document.querySelector(".gameCont");
 let sg = document.querySelector("#startGame");
+let gt = document.querySelector(".time");
+let tmte = 0;
+let ff; 
+let k =0;
+function stopMusic() {
+    if(k%2==0){
+        ss.pause();
+        sm.innerText="Play music"
+        ss.currentTime = 0; 
+    }
+else{
+    sm.innerText="Pause music";
+    ss.play();
+  
+}k+=1;}
 
 function addEventListeners() {
     Array.from(boxes).forEach((box) => {
@@ -22,34 +38,53 @@ function addEventListeners() {
             if (boxText.innerText === "") {
                 m.play().catch(error => console.log("Audio play failed:", error));
                 boxText.innerText = turn;
+
                 if (checkWinner()) {
                     gameOver = true;
                     gg.play();
-                    ss.pause();
+                    stopMusic();
                     gc.style.backgroundImage = "url('img/excited.gif')";
+                    clearInterval(ff);
                 } else {
                     turn = turn === "X" ? "O" : "X";
-                    document.querySelector("#winnerText").innerText =`${ turn} turn`;
+                    document.querySelector("#winnerText").innerText = `${turn} turn`;
                 }
+
                 if (isBoardFull() && !gameOver) {
+                    gameOver = true; 
                     setTimeout(() => {
                         document.querySelectorAll(".boxText").forEach(box => box.innerText = "");
-                        document.querySelector("#winnerText").innerText = "Game Draw! Restarted..."+`${turn} turn`;
-                    }, 1000);
+                        document.querySelector("#winnerText").innerText = `Game Draw! Restarted... ${turn} turn`;
+                        resetGame(); 
+                    }, 2000);
                 }
             }
         });
     });
 }
 
+function resetGame() {
+    gameOver = false;
+    start = false;
+    turn = "X";
+    tmte = 0;
+    gt.innerText = tmte;
+    clearInterval(ff);
+}
+
 sg.addEventListener("click", () => {
+    resetGame();
+    ff = setInterval(() => {
+        tmte += 1;
+        gt.innerText = tmte; 
+    }, 1000);
+
     sg.style.backgroundColor = "red";
     gc.style.backgroundImage = "none";
     ss.currentTime = 0;
     ss.play();
     start = true;
-    gameOver = false;
-    document.querySelector("#winnerText").innerText = "Game Started!"+`${turn} turn`;
+    document.querySelector("#winnerText").innerText = `Game Started! ${turn} turn`;
     document.querySelectorAll(".boxText").forEach(box => box.innerText = "");
     addEventListeners();
 });
