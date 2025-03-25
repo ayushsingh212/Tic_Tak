@@ -29,11 +29,12 @@ function addEventListeners() {
                     gc.style.backgroundImage = "url('img/excited.gif')";
                 } else {
                     turn = turn === "X" ? "O" : "X";
+                    document.querySelector("#winnerText").innerText =`${ turn} turn`;
                 }
                 if (isBoardFull() && !gameOver) {
                     setTimeout(() => {
                         document.querySelectorAll(".boxText").forEach(box => box.innerText = "");
-                        document.querySelector("#winnerText").innerText = "Game Draw! Restarted...";
+                        document.querySelector("#winnerText").innerText = "Game Draw! Restarted..."+`${turn} turn`;
                     }, 1000);
                 }
             }
@@ -48,7 +49,7 @@ sg.addEventListener("click", () => {
     ss.play();
     start = true;
     gameOver = false;
-    document.querySelector("#winnerText").innerText = "Game Started!";
+    document.querySelector("#winnerText").innerText = "Game Started!"+`${turn} turn`;
     document.querySelectorAll(".boxText").forEach(box => box.innerText = "");
     addEventListeners();
 });
