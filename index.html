@@ -8,11 +8,12 @@
 </head>
 <body>
     <nav>
+        <div class="author">Ayush Singh</div>
         <ul>
             <li>MyTicTacToe.com</li>
         </ul>
     </nav>
-    
+    <div class="timeplayed"> <h1> Game Time </h1> <span class="time"></span></div>
     <div class="container">
         <div class="gameCont">
             <div class="box"><span class="boxText"></span></div>
@@ -32,7 +33,7 @@
                 <p class="p2">Player B score: <span class="player2">0</span></p>
                 <div class="react"><p id="winnerText">Start the game..?</p></div>
             </div>
-            <button id="startGame">Start Game</button>
+            <button id="startGame">Start Game</button>  <button id="stopMusic" onclick="stopMusic()">Play Music</button>
         </div>
     </div>
 </body>
